@@ -1,0 +1,39 @@
+<!-- Create a promise and resolve it when the button is clicked -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button id="btn1">resolve</button>
+    <button id="btn2">reject</button>
+
+    <script>
+      const button1 = document.getElementById("btn1");
+      const button2 = document.getElementById("btn2");
+
+      const buttonPromise = new Promise((resolve, reject) => {
+        function handleClick() {
+          resolve("resolved");
+          button1.removeEventListener("click", handleClick);
+        }
+
+        function handleReject() {
+          reject("rejected");
+          button2.removeEventListener("click", handleReject);
+        }
+
+        button1.addEventListener("click", handleClick);
+        button2.addEventListener("click", handleReject);
+      });
+
+      buttonPromise
+        .then((result) => console.log(result))
+        .catch((error) => console.log(error));
+    </script>
+  </body>
+</html>

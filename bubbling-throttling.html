@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="parent" style="padding: 20px; background-color: red">
+      parent
+
+      <span id="child" style="padding: 5px; background-color: blue">child</span>
+    </p>
+  </body>
+
+  <script>
+    const parent = document.getElementById("parent");
+    const child = document.getElementById("child");
+
+    console.log(parent);
+
+    parent.addEventListener(
+      "click",
+      () => {
+        alert("parent clicked");
+      },
+      true
+    );
+
+    child.addEventListener("click", (e) => {
+      alert("child clicked");
+    });
+  </script>
+</html>
