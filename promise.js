@@ -34,5 +34,3 @@ function proccedToPayment(orderId) {
     resolve("payment successful", orderId);
   });
 }
-
-console.log("hello");
