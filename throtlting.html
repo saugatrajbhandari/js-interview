@@ -16,19 +16,23 @@
       console.log("clicked");
     }
 
-    function throttling(fucn, delay) {
+    function throttling(func, delay){
       let shouldCall = true;
-      return function (...args) {
-        console.log(...args);
-        if (!shouldCall) return;
 
-        fucn(...args);
-        shouldCall = false;
+      return function(...args){
+        if(!shouldCall) return;
+
+          func(...args)
+        shouldCall = false
+
         setTimeout(() => {
-          shouldCall = true;
-        }, delay);
-      };
+        shouldCall = true
+        }, delay)
+
+      }
+
     }
+
 
     btn.addEventListener("click", throttling(buttonClick, 300));
   </script>
